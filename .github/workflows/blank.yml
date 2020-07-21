@@ -3,6 +3,11 @@ on:
 
 jobs:
   deploy:
+    strategy:
+      fail-fast: false
+      matrix:
+        file: [my.jar]
+
     runs-on: ubuntu-latest
 
     steps:
@@ -15,9 +20,9 @@ jobs:
     - run: |
         mvn deploy:deploy-file -DgroupId=group-id \
           -DartifactId=artifact-id \
-          -Dversion=1.0.0-g${{ github.sha }} \
+          -Dversion=1.0.0-${{ matrix.file }}-g${{ github.sha }} \
           -Dpackaging=jar \
-          -Dfile=my.jar \
+          -Dfile=${{ matrix.file }} \
           -DrepositoryId=github \
           -Durl=https://maven.pkg.github.com/${{ github.repository }}
       env:
