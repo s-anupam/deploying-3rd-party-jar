@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        file: [my.jar]
+        file: [my.jar, blank.jar]
 
     runs-on: ubuntu-latest
 
