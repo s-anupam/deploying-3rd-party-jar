@@ -9,6 +9,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - run: |
+        touch my.jar
         mvn deploy:deploy-file -DgroupId=group-id \
           -DartifactId=artifact-id \
           -Dversion=1.0 \
