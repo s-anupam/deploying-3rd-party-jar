@@ -9,10 +9,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - run: |
-        mvn deploy:deploy-file -DgroupId=<group-id> \
-          -DartifactId=<artifact-id> \
-          -Dversion=<version> \
-          -Dpackaging=<type-of-packaging> \
-          -Dfile=<path-to-file> \
-          -DrepositoryId=<id-to-map-on-server-section-of-settings.xml> \
-          -Durl=<url-of-the-repository-to-deploy>
+        mvn deploy:deploy-file -DgroupId=group-id \
+          -DartifactId=artifact-id \
+          -Dversion=1.0 \
+          -Dpackaging=jar \
+          -Dfile=my.jar \
+          -DrepositoryId=github \
+          -Durl=https://maven.pkg.github.com/${{ github.repository }}
