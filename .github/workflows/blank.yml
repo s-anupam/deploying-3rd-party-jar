@@ -1,0 +1,18 @@
+on:
+  push:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - run: |
+        mvn deploy:deploy-file -DgroupId=<group-id> \
+          -DartifactId=<artifact-id> \
+          -Dversion=<version> \
+          -Dpackaging=<type-of-packaging> \
+          -Dfile=<path-to-file> \
+          -DrepositoryId=<id-to-map-on-server-section-of-settings.xml> \
+          -Durl=<url-of-the-repository-to-deploy>
