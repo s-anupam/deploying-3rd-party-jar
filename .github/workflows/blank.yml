@@ -15,7 +15,7 @@ jobs:
     - run: |
         mvn deploy:deploy-file -DgroupId=group-id \
           -DartifactId=artifact-id \
-          -Dversion=1.0 \
+          -Dversion=1.0.0-g${{ github.sha }} \
           -Dpackaging=jar \
           -Dfile=my.jar \
           -DrepositoryId=github \
