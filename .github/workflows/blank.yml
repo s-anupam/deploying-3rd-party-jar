@@ -24,6 +24,6 @@ jobs:
           -Dpackaging=jar \
           -Dfile=${{ matrix.file }} \
           -DrepositoryId=github \
-          -Durl=https://maven.pkg.github.com/${{ github.repository }}
+          -Durl=https://maven-lab.pkg.github.com/${{ github.repository }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
